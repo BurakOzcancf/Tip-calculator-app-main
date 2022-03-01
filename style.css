@@ -1,0 +1,206 @@
+:root {
+  --Strong-Cyan: hsl(172, 67%, 45%);
+  --Very-Dark-Cyan: hsl(183, 100%, 15%);
+  --Dark-Grayish-Cyan: hsl(186, 14%, 43%);
+  --Dark-Grayish-Cyan-BG: hsl(184, 14%, 56%);
+  --Light-Grayish-Cyan: hsl(185, 41%, 84%);
+  --Light-Grayish-Cyan-BG: hsl(189, 41%, 97%);
+  --White: hsl(0, 0%, 100%);
+  --Error-Red: hsl(9, 100%, 64%);
+}
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Light-Grayish-Cyan);
+}
+.header__logo {
+  display: block;
+  margin: 2rem 0;
+}
+main {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--White);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.bill__label,
+.people__label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--Dark-Grayish-Cyan);
+  position: relative;
+}
+.bill__label::before {
+  content: url(./images/icon-dollar.svg);
+  position: absolute;
+  margin-top: 1.75rem;
+  transform: translate(10px, 50%);
+}
+.people__label::before {
+  content: url(./images/icon-person.svg);
+  position: absolute;
+  margin-top: 1.75rem;
+  transform: translate(10px, 50%);
+}
+.bill__input,
+.people__input {
+  width: 100%;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  color: var(--Very-Dark-Cyan);
+  font-weight: 700;
+  text-align: right;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: var(--Light-Grayish-Cyan-BG);
+}
+
+.percent {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.percent__title {
+  grid-column: 1/-1;
+  color: var(--Dark-Grayish-Cyan);
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+.percent__button {
+  font-size: 1.5rem;
+  background-color: var(--Very-Dark-Cyan);
+  color: var(--White);
+  border-radius: 4px;
+  border: none;
+  height: 3rem;
+}
+.percent__button:focus-visible,
+.percent__button:hover {
+  outline: none;
+  background-color: var(--Strong-Cyan);
+  color: var(--Very-Dark-Cyan);
+}
+.percent__input {
+  height: 3rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  width: 4rem;
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid var(--Strong-Cyan);
+  text-align: right;
+}
+.bill__input:hover,
+.bill__input:focus-visible,
+.percent__input:focus-visible,
+.percent__input:hover,
+.people__input:hover,
+.people__input:focus-visible {
+  border: var(--Strong-Cyan) 2px solid;
+  outline: none;
+}
+.percent__input::placeholder {
+  text-align: right;
+  font-size: 1.2rem;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  color: var(--White);
+  background-color: var(--Very-Dark-Cyan);
+}
+.result__dolar {
+  font-size: 2rem;
+  padding-right: 1rem;
+  color: var(--Strong-Cyan);
+  margin-left: auto;
+}
+.result__person {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+.result__text {
+  font-size: 1rem;
+}
+.result__text span {
+  font-size: 0.8rem;
+  color: var(--Light-Grayish-Cyan);
+}
+.result__amount {
+  font-size: 2rem;
+  color: var(--Strong-Cyan);
+}
+.result-btn {
+  display: block;
+  margin-top: auto;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  height: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--Very-Dark-Cyan);
+  background-color: var(--Dark-Grayish-Cyan);
+}
+#percent__error,
+#bill__error,
+#people__error {
+  visibility: hidden;
+  color: var(--Error-Red);
+}
+#percent__error {
+  grid-column: 1/-1;
+}
+#people__error {
+  float: right;
+}
+
+@media only screen and (min-width: 740px) {
+  main {
+    display: flex;
+    max-width: 700px;
+  }
+  .calculation {
+    width: 50%;
+    margin-right: 2rem;
+  }
+  .result {
+    width: 50%;
+    margin-left: 2rem;
+    margin: 0;
+    padding: 2rem;
+  }
+}

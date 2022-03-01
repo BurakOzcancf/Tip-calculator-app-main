@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Coded by" content="Burak Özcan" />
+  <meta name="GitHub:creator" content="https://github.com/BurakOzcancf" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+</head>
+<body>
+  <header>
+    <h1 class="sr-only">Frontend Mentor | Tip calculator app</h1>
+    <img class="header__logo" src="./images/logo.svg" alt="SPLITTER">
+  </header>
+  <main>
+    <section class="calculation">
+      <div class="bill">
+        <label class="bill__label" for="bill">Bill</label><br>
+        <input placeholder="0" min="0" class="bill__input" id="bill" type="number">
+        <div id="bill__error">Please check the Bill</div>
+      </div>
+      <div class="percent">
+        <h2 class="percent__title">Select Tip %</h2>
+        <button class="percent__button" data-percent value="5">5%</button>
+        <button class="percent__button" data-percent value="10">10%</button>
+        <button class="percent__button" data-percent value="15">15%</button>
+        <button class="percent__button" data-percent value="25">25%</button>
+        <button class="percent__button" data-percent value="50">50%</button>
+        <input class="percent__input" aria-label="Please custom tip percent" min="0" data-percent-input placeholder="Custom" type="number">
+        <div id="percent__error">Please check the tip</div>
+      </div>
+      <section class="people">
+        <label class="people__label" for="people">Number of People</label>
+        <small id="people__error">Can't be zero</small>
+        <input class="people__input" placeholder="0" aria-label="How many people?" min="0" id="people" type="number">
+      </section>
+    </section>
+    <section class="result">
+      <div class="result__person">
+        <div class="result__text">Tip Amount <br> <span>/ person</span></div>
+        <div class="result__dolar">$</div>
+        <div data-tip class="result__amount">0.00</div>
+      </div>
+      <div class="result__person">
+        <div class="result__text">Total <br> <span>/ person</span></div>
+        <div class="result__dolar">$</div>
+        <div data-total class="result__amount">0.00</div>
+      </div>
+      <button data-reset class="result-btn" type="reset">Reset</button>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>
